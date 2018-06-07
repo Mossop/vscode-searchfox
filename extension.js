@@ -29,6 +29,10 @@ async function getTextToSearch(prompt, placeHolder) {
                     window.activeTextEditor.document.getWordRangeAtPosition(selection.start) :
                     selection;
 
+        if (!range) {
+            return promptForText(prompt, placeHolder);
+        }
+
         let text = window.activeTextEditor.document.getText(range);
 
         if (text) {
