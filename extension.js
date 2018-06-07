@@ -48,7 +48,7 @@ async function searchText(context) {
 }
 
 function displayResults(data, context) {
-    if (data.timedout) {
+    if (data["*timedout*"]) {
         window.showErrorMessage('Searchfox timed out.');
         return;
     }
@@ -58,7 +58,7 @@ function displayResults(data, context) {
     let js = Uri.file(path.join(context.extensionPath, 'media', 'js', 'search.js'))
                 .with({ scheme: 'vscode-resource' });
 
-    let html = `<!DOCTYPE html><html><head><title>${data.title}</title>` +
+    let html = `<!DOCTYPE html><html><head>` +
       `<link rel='stylesheet' type='text/css' href='${css}'>` +
       `<script type='text/javascript' src='${js}'></script>` +
     `</head><body><ul>`;
@@ -67,7 +67,7 @@ function displayResults(data, context) {
     }
     html += `</ul></body></html>`;
 
-    let panel = window.createWebviewPanel('searchfox', data.title, ViewColumn.Three, {
+    let panel = window.createWebviewPanel('searchfox', data["*title*"], ViewColumn.Three, {
         localResourceRoots: [
             Uri.file(path.join(context.extensionPath, 'media')),
         ],
