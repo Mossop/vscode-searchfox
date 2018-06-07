@@ -78,7 +78,6 @@ function displayResults(data, context) {
     panel.webview.onDidReceiveMessage(async message => {
         switch (message.command) {
             case 'openPath':
-                try {
                 let foo = path.join(workspace.rootPath, message.data.path);
                 let document = await workspace.openTextDocument(foo);
                 let editor = await window.showTextDocument(document, ViewColumn.One);
@@ -90,9 +89,6 @@ function displayResults(data, context) {
 
                     let range = new Range(position, position);
                     editor.revealRange(range, TextEditorRevealType.InCenter);
-                }
-                } catch (e) {
-                    console.error(e);
                 }
                 break;
             default:
