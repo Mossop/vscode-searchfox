@@ -33,6 +33,10 @@ This extension is licensed under the [Mozilla Public License 2.0](https://www.mo
 
 The icons used in this extension come from various sources:
 
-* [Tango](http://tango.freedesktop.org/)
+* [Tango](http://tango.freedesktop.org/) (public domain)
   * `icon.png`
-
+* [Silk](http://www.famfamfam.com/lab/icons/silk/) (by Mark James, licensed under Creative Commons Attribution 2.5 License)
+  * `mimetypes/*`
+* [Fugue](http://p.yusukekamiyamane.com/) (by Yusuke Kamiyamane, licensed under Creative Commons Attribution 3.0 License)
+  * `mimetypes/diff.png`
+  * `mimetypes/tex.png`

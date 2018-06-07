@@ -2,7 +2,19 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+const path = require('path');
+
 const escape = require('escape-html');
+
+function findExtension(file) {
+    let filename = path.basename(file);
+    let pos = filename.lastIndexOf('.');
+    if (pos == -1) {
+        return null;
+    }
+
+    return filename.substring(pos + 1);
+}
 
 function renderLine(path, line) {
     let content = `<li class='line' data-line='${parseInt(line.lno)}'><span class='lineno'>`;
@@ -15,7 +27,10 @@ function renderLine(path, line) {
 }
 
 function renderFile(path, lines, sectionId) {
-    let content = `<li class='file ${sectionId}' data-path='${escape(path)}'><h3>`;
+    let extension = findExtension(path);
+    let mimetypeClass = extension ? ` mimetype-${extension}` : '';
+
+    let content = `<li class='file ${sectionId}${mimetypeClass}' data-path='${escape(path)}'><h3>`;
     content += escape(path);
     content += `</h3>`;
 

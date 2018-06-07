@@ -37,6 +37,96 @@ h3 {
   background-repeat: no-repeat;
 }
 
+.mimetype-build h3 {
+  background-image: url("../images/mimetypes/build.png");
+}
+
+.mimetype-c h3 {
+  background-image: url("../images/mimetypes/c.png");
+}
+
+.mimetype-conf h3 {
+  background-image: url("../images/mimetypes/conf.png");
+}
+
+.mimetype-cpp h3 {
+  background-image: url("../images/mimetypes/cpp.png");
+}
+
+.mimetype-cs h3 {
+  background-image: url("../images/mimetypes/cs.png");
+}
+
+.mimetype-css h3 {
+  background-image: url("../images/mimetypes/css.png");
+}
+
+.mimetype-diff h3 {
+  background-image: url("../images/mimetypes/diff.png");
+}
+
+.mimetype-h h3 {
+  background-image: url("../images/mimetypes/h.png");
+}
+
+.mimetype-html h3 {
+  background-image: url("../images/mimetypes/html.png");
+}
+
+.mimetype-java h3 {
+  background-image: url("../images/mimetypes/java.png");
+}
+
+.mimetype-js h3,
+.mimetype-jsm h3,
+.mimetype-jsx h3 {
+  background-image: url("../images/mimetypes/js.png");
+}
+
+.mimetype-mm h3 {
+  background-image: url("../images/mimetypes/mm.png");
+}
+
+.mimetype-php h3 {
+  background-image: url("../images/mimetypes/php.png");
+}
+
+.mimetype-py h3 {
+  background-image: url("../images/mimetypes/py.png");
+}
+
+.mimetype-rb h3 {
+  background-image: url("../images/mimetypes/rb.png");
+}
+
+.mimetype-sh h3 {
+  background-image: url("../images/mimetypes/sh.png");
+}
+
+.mimetype-svg h3 {
+  background-image: url("../images/mimetypes/svg.png");
+}
+
+.mimetype-tex h3 {
+  background-image: url("../images/mimetypes/tex.png");
+}
+
+.mimetype-txt h3 {
+  background-image: url("../images/mimetypes/txt.png");
+}
+
+.mimetype-ui h3 {
+  background-image: url("../images/mimetypes/ui.png");
+}
+
+.mimetype-vs h3 {
+  background-image: url("../images/mimetypes/vs.png");
+}
+
+.mimetype-xml h3 {
+  background-image: url("../images/mimetypes/xml.png");
+}
+
 .line {
   list-style: none;
 }
