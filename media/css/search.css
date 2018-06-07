@@ -2,6 +2,10 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+html {
+  background: var(--vscode-editor-background);
+}
+
 ul {
   padding: 0;
 }
@@ -132,7 +136,16 @@ h3 {
 }
 
 .lineno {
-  padding-right: 10px;
+  display: inline-block;
+  text-align: right;
+  min-width: 35px;
+  margin-right: 5px;
+  color: var(--vscode-editorLineNumber-foreground);
+  font: monospace;
+}
+
+code {
+  color: var(--vscode-editor-foreground);
 }
 
 .file.test h3,      .file.normal h3,
