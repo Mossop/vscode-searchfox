@@ -6,16 +6,39 @@ ul {
   padding: 0;
 }
 
-li {
-  list-style: none;
-}
-
 .main {
   padding-bottom: 20px;
 }
 
+h1 {
+  font: inherit;
+  font-size: 18px;
+}
+
 .group {
   padding-bottom: 5px;
+}
+
+h2 {
+  font: inherit;
+  font-weight: bold;
+}
+
+.file {
+  list-style: none;
+}
+
+h3 {
+  font: inherit;
+  margin: 3px 0;
+  padding-left: 20px;
+  background-image: url("../images/mimetypes/unknown.png");
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+.line {
+  list-style: none;
 }
 
 .lineno {
