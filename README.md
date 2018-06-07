@@ -21,6 +21,10 @@ Please find and file issues at [Github](https://github.com/FractalBrew/vscode-se
 
 ## Release Notes
 
+### 0.3.0
+
+* Various bug fixes and styling tweaks.
+
 ### 0.2.0
 
 * Add icons for files.
