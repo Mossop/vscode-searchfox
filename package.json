@@ -1,0 +1,49 @@
+{
+    "name": "searchfox",
+    "displayName": "Searchfox",
+    "description": "Allows searching Searchfox direct from VS Code",
+    "version": "0.0.1",
+    "publisher": "fractalbrew",
+    "engines": {
+        "vscode": "^1.24.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:searchfox.searchText"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "searchfox.searchText",
+                "title": "Search Searchfox for keyword",
+                "category": "Searchfox"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "when": "editorTextFocus",
+                    "command": "searchfox.searchText"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "eslint": "^4.11.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    },
+    "dependencies": {
+        "escape-html": "^1.0.3",
+        "node-fetch": "^2.1.2"
+    }
+}

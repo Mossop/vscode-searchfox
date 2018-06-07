@@ -1,0 +1,25 @@
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.main {
+  padding-bottom: 20px;
+}
+
+.group {
+  padding-bottom: 5px;
+}
+
+.lineno {
+  padding-right: 10px;
+}
+
+.file.test h3,      .file.normal h3,
+.file.test .lineno, .file.normal .lineno,
+.file.test code,    .file.normal code {
+  cursor: pointer;
+}
