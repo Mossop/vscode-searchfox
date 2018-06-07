@@ -21,9 +21,14 @@ Please find and file issues at [Github](https://github.com/FractalBrew/vscode-se
 
 ## Release Notes
 
+### 0.2.0
+
+* Add icons for files.
+* Improve Searchfox styling.
+
 ### 0.1.0
 
-Initial release
+* Initial release.
 
 ## License
 

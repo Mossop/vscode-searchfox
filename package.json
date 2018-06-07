@@ -2,7 +2,7 @@
     "name": "searchfox",
     "displayName": "Searchfox",
     "description": "Allows searching Searchfox direct from VS Code",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "publisher": "fractalbrew",
     "icon": "icon.png",
     "license": "MPL-2.0",
