@@ -7,7 +7,7 @@ This is an extension for VS Code adding integration with Mozilla's Searchfox.
 Adds a new command to VS Code to search Searchfox for a given keyword. You can
 access the command from the command palette or from the context menu of an open
 editor where it will search for the keyword under the cursor or the current
-selection.
+selection. The command can alwo be launched by pressing Alt+S.
 
 ## Requirements
 

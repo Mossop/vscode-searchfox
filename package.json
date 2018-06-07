@@ -39,7 +39,11 @@
                     "command": "searchfox.searchText"
                 }
             ]
-        }
+        },
+        "keybindings": [{
+            "command": "searchfox.searchText",
+            "key": "alt+s"
+        }]
     },
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",
