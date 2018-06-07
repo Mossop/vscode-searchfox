@@ -23,21 +23,19 @@ window.addEventListener("DOMContentLoaded", () => {
       openPath(path);
     });
 
-    let line = file.querySelector('.line');
-    if (!line) {
-      continue;
+    let lines = file.querySelectorAll('.line');
+    for (let line of lines) {
+      let lineno = line.dataset.line;
+
+      let number = line.querySelector('.lineno');
+      number.addEventListener('click', () => {
+        openPath(path, lineno);
+      })
+
+      let code = line.querySelector('code');
+      code.addEventListener('click', () => {
+        openPath(path, lineno);
+      })
     }
-
-    let lineno = line.dataset.line;
-
-    let number = line.querySelector('.lineno');
-    number.addEventListener('click', () => {
-      openPath(path, lineno);
-    })
-
-    let code = line.querySelector('code');
-    code.addEventListener('click', () => {
-      openPath(path, lineno);
-    })
   }
 });
