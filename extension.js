@@ -45,6 +45,9 @@ async function getTextToSearch(prompt, placeHolder) {
 
 async function searchText(context) {
     let text = await getTextToSearch('Keyword to search for on Searchfox', 'keyword');
+    if (!text) {
+        return;
+    }
 
     let data = await search({
         q: text,
