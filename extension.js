@@ -63,6 +63,7 @@ function displayResults(data, context) {
                 .with({ scheme: 'vscode-resource' });
 
     let html = `<!DOCTYPE html><html><head>` +
+      `<meta http-equiv="Content-Security-Policy" content="default-src vscode-resource:;">` +
       `<link rel='stylesheet' type='text/css' href='${css}'>` +
       `<script type='text/javascript' src='${js}'></script>` +
     `</head><body><ul>`;
