@@ -11,54 +11,46 @@ const { workspace, window, commands, ViewColumn, Uri, Position, Selection,
 const { search } = require('./searchfox/api');
 const { renderMainSection } = require('./searchfox/render');
 
-function promptForText(prompt, placeHolder) {
-    return window.showInputBox({
-        placeHolder,
-        prompt
-    });
-}
-
-async function getTextToSearch(prompt, placeHolder) {
-    if (window.activeTextEditor) {
-        let selection = window.activeTextEditor.selections[0];
-        if (!selection.isSingleLine) {
-            return promptForText(prompt, placeHolder);
-        }
-
-        let range = selection.isEmpty ?
-                    window.activeTextEditor.document.getWordRangeAtPosition(selection.start) :
-                    selection;
-
-        if (!range) {
-            return promptForText(prompt, placeHolder);
-        }
-
-        let text = window.activeTextEditor.document.getText(range);
-
-        if (text) {
-            return text;
-        }
-    }
-
-    return promptForText(prompt, placeHolder);
-}
-
 async function searchText(context) {
-    let text = await getTextToSearch('Keyword to search for on Searchfox', 'keyword');
+    let text = await window.showInputBox({
+        placeHolder: 'Keyword to search for on Searchfox',
+        prompt: 'keyword'
+    });
+
     if (!text) {
         return;
     }
 
+    searchSearchfox(context, text);
+}
+
+async function searchEditor(context, editor) {
+    let selection = editor.selections[0];
+    if (!selection.isSingleLine) {
+        return ;
+    }
+
+    let range = selection.isEmpty ?
+                editor.document.getWordRangeAtPosition(selection.start) :
+                selection;
+
+    if (!range) {
+        return ;
+    }
+
+    let text = editor.document.getText(range);
+    if (text) {
+        searchSearchfox(context, text, editor.viewColumn || ViewColumn.One);
+    }
+}
+
+async function searchSearchfox(context, text, viewColumn) {
     let data = await search({
         q: text,
         case: false,
         regexp: false,
     });
 
-    displayResults(data, context);
-}
-
-function displayResults(data, context) {
     if (data["*timedout*"]) {
         window.showErrorMessage('Searchfox timed out.');
         return;
@@ -92,7 +84,7 @@ function displayResults(data, context) {
             case 'openPath':
                 let foo = path.join(workspace.rootPath, message.data.path);
                 let document = await workspace.openTextDocument(foo);
-                let editor = await window.showTextDocument(document, ViewColumn.One);
+                let editor = await window.showTextDocument(document, viewColumn);
                 if (message.data.line) {
                     let line = message.data.line - 1;
                     let position = new Position(line, 0);
@@ -113,7 +105,9 @@ function displayResults(data, context) {
 // this method is called when your extension is activated
 function activate(context) {
     let disposable = commands.registerCommand('searchfox.searchText', searchText.bind(null, context));
+    context.subscriptions.push(disposable);
 
+    disposable = commands.registerTextEditorCommand('searchfox.searchEditor', searchEditor.bind(null, context));
     context.subscriptions.push(disposable);
 }
 exports.activate = activate;

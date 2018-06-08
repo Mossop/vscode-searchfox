@@ -2,7 +2,7 @@
     "name": "searchfox",
     "displayName": "Searchfox",
     "description": "Allows searching Searchfox direct from VS Code",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "publisher": "fractalbrew",
     "icon": "icon.png",
     "license": "MPL-2.0",
@@ -21,14 +21,20 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:searchfox.searchText"
+        "onCommand:searchfox.searchText",
+        "onCommand:searchfox.searchEditor"
     ],
     "main": "./extension",
     "contributes": {
         "commands": [
             {
+                "command": "searchfox.searchEditor",
+                "title": "Search Searchfox for selection in editor",
+                "category": "Searchfox"
+            },
+            {
                 "command": "searchfox.searchText",
-                "title": "Search Searchfox for keyword",
+                "title": "Search Searchfox",
                 "category": "Searchfox"
             }
         ],
@@ -36,14 +42,18 @@
             "editor/context": [
                 {
                     "when": "editorTextFocus",
-                    "command": "searchfox.searchText"
+                    "command": "searchfox.searchEditor"
                 }
             ]
         },
         "keybindings": [
             {
-                "command": "searchfox.searchText",
+                "command": "searchfox.searchEditor",
                 "key": "alt+s"
+            },
+            {
+                "command": "searchfox.searchText",
+                "key": "alt+shift+s"
             }
         ]
     },

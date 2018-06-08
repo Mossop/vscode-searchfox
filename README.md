@@ -4,10 +4,12 @@ This is an extension for VS Code adding integration with Mozilla's Searchfox.
 
 ## Features
 
-Adds a new command to VS Code to search Searchfox for a given keyword. You can
-access the command from the command palette or from the context menu of an open
-editor where it will search for the keyword under the cursor or the current
-selection. The command can alwo be launched by pressing Alt+S.
+Adds new commands to VS Code to search Searchfox for keywords. You can access
+the commands from the command palette, from keyboard shortcuts or from the
+editor context menu.
+
+* Alt+S: Search for the text selected or under the cursor in the editor.
+* Alt+Shift+S: Ask for the text to search for.
 
 ## Requirements
 
@@ -20,6 +22,10 @@ The extension currently assumes that the first folder in your workspace is the r
 Please find and file issues at [Github](https://github.com/FractalBrew/vscode-searchfox/issues).
 
 ## Release Notes
+
+### 0.4.0
+
+* Split searching into two commands.
 
 ### 0.3.0
 
